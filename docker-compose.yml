@@ -40,9 +40,9 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: "192.168.101.0/24"
+        - subnet: 192.168.101.0/24
   db-net:
     driver: bridge
     ipam:
       config:
-        - subnet: "192.168.102.0/24"
+        - subnet: 192.168.102.0/24
