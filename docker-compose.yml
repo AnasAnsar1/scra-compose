@@ -23,9 +23,9 @@ services:
       - students-private-net
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=lessdb
-      - MYSQL_USER=less
-      - MYSQL_PASSWORD=less
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=directdevops
+      - MYSQL_PASSWORD=directdevops
     volumes:
       - type: volume
         source: dbdata
