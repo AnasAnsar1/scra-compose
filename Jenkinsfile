@@ -10,9 +10,11 @@ pipeline {
       }
     }
 
-    stage ("buidl & push") {
-      sh "docker image build -t anasansarii/sc:1.1 ."
-      sh "docker push anasansarii/sc:1.1"
+    stage ("build & push") {
+      steps {
+        sh "docker image build -t anasansarii/sc:1.1 ."
+        sh "docker push anasansarii/sc:1.1"
+    }
     }
   }
 
