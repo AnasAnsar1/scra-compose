@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: scra
+  labels:
+    app: scra
+    env: dev
+  namespace: scra
+spec:
+  minReadySeconds: 5sec
+  replicas: 4
+  selector:
+    app: scra
+  template:
+    metadata:
+      name: scra
+      labels:
+        app: scra
+        env: dev
+      namespace: scra
+    spec:
+      containers:
+        - name: scra
+          image: anasansarii/sc:2.0
+          env:
+            - name: MYSQL_SERVER
+              value: db_svc
+          ports:
+            - name: scra-port
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: scra_volume
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: scra_volume
+          persistentVolumeClaim:
+            claimName: scra_vol
